@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo 'noop' > /sys/block/hda/queue/scheduler
+echo 'noop' > /sys/block/vda/queue/scheduler
