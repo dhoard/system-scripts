@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo 'noop' > /sys/block/vda/queue/scheduler
+echo 'none' > /sys/block/vda/queue/scheduler
