@@ -23,3 +23,5 @@ echo "echo noop > /sys/block/vda/queue/scheduler" >> /etc/rc.local
 echo 'vm.swappiness=5' >> /etc/sysctl.conf
 
 echo 'vm.vfs_cache_pressure=50' >> /etc/sysctl.conf
+
+sysctl -p
