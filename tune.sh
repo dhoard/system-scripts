@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "" >> /etc/sysctl.conf
 echo "#" >> /etc/sysctl.conf
 echo "# tune.sh" >> /etc/sysctl.conf
 echo "#" >> /etc/sysctl.conf
@@ -18,14 +17,13 @@ echo 0 > /sys/block/vda/queue/rotational
 echo 0 > /sys/block/vda/queue/rq_affinity
 echo "none" > /sys/block/vda/queue/scheduler
 
-echo "" >> /etc/rc.local
 echo "#" >> /etc/rc.local
 echo "# tune.sh" >> /etc/rc.local
 echo "#" >> /etc/rc.local
 
 echo "echo 0 > /sys/block/vda/queue/rotational" >> /etc/rc.local
 echo "echo 0 > /sys/block/vda/queue/rq_affinity" >> /etc/rc.local
-echo "echo noop > /sys/block/vda/queue/scheduler" >> /etc/rc.local
+echo "echo none > /sys/block/vda/queue/scheduler" >> /etc/rc.local
 
 chmod u+x /etc/rc.local
 systemctl enable rc-local
