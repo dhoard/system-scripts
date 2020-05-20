@@ -28,3 +28,4 @@ echo "echo none > /sys/block/vda/queue/scheduler" >> /etc/rc.local
 chmod u+x /etc/rc.local
 systemctl enable rc-local
 systemctl restart rc-local
+systemctl restart rc-local
