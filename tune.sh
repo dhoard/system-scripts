@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "" >> /etc/sysctl.conf
 echo "#" >> /etc/sysctl.conf
 echo "# tune.sh" >> /etc/sysctl.conf
 echo "#" >> /etc/sysctl.conf
@@ -17,6 +18,7 @@ echo 0 > /sys/block/vda/queue/rotational
 echo 0 > /sys/block/vda/queue/rq_affinity
 echo "none" > /sys/block/vda/queue/scheduler
 
+echo "" >> /etc/rc.local
 echo "#" >> /etc/rc.local
 echo "# tune.sh" >> /etc/rc.local
 echo "#" >> /etc/rc.local
