@@ -25,7 +25,7 @@ then
     else
         echo 'Operation aborted. No changes were made.'
     fi
-elif [ "$1" = "headless" ] || [ "$1" = "--headless" ];
+elif [ "$1" = "headless" ] || [ "$1" = "--headless" ] || [ "$1" = "-y"] || [ "$1" = "--yes"];
 then
     echo "The following (unused) KERNEL packages will be removed:"
     xpkg_list
