@@ -21,7 +21,7 @@ then
     
     if [[ $REPLY =~ ^[Yy]$ ]];
     then
-        xpkg_list | xargs sudo apt-get -y purge
+        xpkg_list | xargs apt-get -y purge
     else
         echo 'Operation aborted. No changes were made.'
     fi
@@ -29,5 +29,5 @@ elif [ "$1" = "headless" ] || [ "$1" = "--headless" ] || [ "$1" = "-y" ] || [ "$
 then
     echo "The following (unused) KERNEL packages will be removed:"
     xpkg_list
-    xpkg_list | xargs sudo apt-get -y purge
+    xpkg_list | xargs apt-get -y purge
 fi

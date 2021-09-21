@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get -u upgrade --assume-no
+apt-get -u upgrade --assume-no
