@@ -2,8 +2,8 @@
 
 if [ ! -f "${2}" ]
 then
-  echo "${2}" > run-on-hosts.tmp
-  FILE=run-on-hosts.tmp
+  FILE=$(mktemp /tmp/run-on-hosts.XXXXXXXXX)
+  echo "${2}" > ${FILE}
 else
   FILE="${2}"
 fi
