@@ -7,7 +7,7 @@ if [ "Ubuntu" == "$NAME" ]; then
 elif [ "Linux Mint" == "$NAME" ]; then
   echo "Linux Mint"
 elif [ "Raspbian GNU/Linux" == "$NAME" ]; then
-  echo "Raspbian GNX/Linux"
+  echo "Raspbian GNU/Linux"
 else
   echo "Unknown"
   exit 1
