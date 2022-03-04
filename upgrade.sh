@@ -34,7 +34,7 @@ if [ "apt" == "$TYPE" ]; then
 fi
 
 if [ "dnf" == "$TYPE" ]; then
-  dnf update -y
+  dnf upgrade --refresh -y
 fi
 
 if [ -f /var/run/reboot-required ]; then
