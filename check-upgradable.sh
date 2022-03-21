@@ -16,7 +16,7 @@ elif [ "AlmaLinux" = "$NAME" ]; then
   echo "AlmaLinux"
   TYPE=dnf
 else
-  echo "Unknown"
+  echo "Unknown Linux type"
   exit 1
 fi
 
