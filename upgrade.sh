@@ -33,8 +33,6 @@ if [ "apt" == "$PACKAGE_MANAGER" ]; then
   apt-get -y autoremove
 fi
 
-fi
-
 if [ "dnf" == "$PACKAGE_MANAGER" ]; then
   dnf upgrade --refresh -y
 fi
