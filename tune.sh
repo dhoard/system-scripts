@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OUTPUT=`grep "# tune.sh" /etc/systctl.conf`
+OUTPUT=`grep "# tune.sh" /etc/sysctl.conf`
 
 if [ "$OUTPUT" == "" ]; then
 
