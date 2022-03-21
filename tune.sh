@@ -25,7 +25,7 @@ echo "echo 0 > /sys/block/vda/queue/rotational" >> /etc/rc.local
 echo "echo 0 > /sys/block/vda/queue/rq_affinity" >> /etc/rc.local
 echo "echo none > /sys/block/vda/queue/scheduler" >> /etc/rc.local
 
-chmod u+x /etc/rc.local
-systemctl enable rc-local
-systemctl restart rc-local
-systemctl restart rc-local
+#chmod u+x /etc/rc.local
+#systemctl enable rc-local
+#systemctl restart rc-local
+#systemctl restart rc-local
