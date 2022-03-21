@@ -1,26 +1,26 @@
 #!/bin/bash
 
 source /etc/os-release
-TYPE=Unknown
+PACKAGE_MANAGER=Unknown
 
 if [ "Ubuntu" == "$NAME" ]; then
   echo "Ubuntu"
-  TYPE=apt
+  PACKAGE_MANAGER=apt
 elif [ "Linux Mint" == "$NAME" ]; then
   echo "Linux Mint"
-  TYPE=apt
+  PACKAGE_MANAGER=apt
 elif [ "Raspbian GNU/Linux" == "$NAME" ]; then
   echo "Raspbian GNU/Linux"
-  TYPE=apt
+  PACKAGE_MANAGER=apt
 elif [ "AlmaLinux" = "$NAME" ]; then
   echo "AlmaLinux"
-  TYPE=dnf
+  PACKAGE_MANAGER=dnf
 else
-  echo "Unknown"
+  echo "Unknown Linux type"
   exit 1
 fi
 
-if [ "apt" == "$TYPE" ]; then
+if [ "apt" == "$PACKAGE_MANAGER" ]; then
 
   if [ "Raspbian GNU/Linux" == "$NAME" ]; then
     apt-get -y update
@@ -33,10 +33,21 @@ if [ "apt" == "$TYPE" ]; then
   apt-get -y autoremove
 fi
 
-if [ "dnf" == "$TYPE" ]; then
+fi
+
+if [ "dnf" == "$PACKAGE_MANAGER" ]; then
   dnf upgrade --refresh -y
 fi
 
-if [ -f /var/run/reboot-required ]; then
-  echo 'reboot required'
+if [ "apt" == "$PACKAGE_MANAGER" ]; then
+  if [ -f /var/run/reboot-required ]; then
+    echo "reboot required"
+  fi
+fi
+
+if [ "dnf" == "$PACKAGE_MANAGER" ]; then
+  OUTPUT=`needs-restarting -r | grep "Reboot should not be necessary."`
+  if [ "$OUTPUT" != "Reboot should not be necessary." ]; then
+    echo "reboot required"a
+  fi
 fi
