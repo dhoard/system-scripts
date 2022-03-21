@@ -29,6 +29,6 @@ fi
 if [ "dnf" == "$PACKAGE_MANAGER" ]; then
   OUTPUT=`needs-restarting -r | grep "Reboot should not be necessary."`
   if [ "$OUTPUT" != "Reboot should not be necessary." ]; then
-    echo "reboot required"a
+    echo "reboot required"
   fi
 fi
