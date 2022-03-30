@@ -41,7 +41,9 @@ if [ "apt" == "$PACKAGE_MANAGER" ]; then
     else
       OUTPUT=`needrestart -b 2>&1 | grep "NEEDRESTART-KSTA"`
       if [ "$OUTPUT" != "NEEDRESTART-KSTA: 1" ]; then
-        echo "reboot required"
+        if [ "$NAME" != "Raspbian GNU/Linux"]; then
+          echo "reboot required"
+        fi
       fi
     fi
   fi
