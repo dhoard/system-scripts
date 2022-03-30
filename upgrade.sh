@@ -34,11 +34,16 @@ fi
 if [ "apt" == "$PACKAGE_MANAGER" ]; then
   if [ -f /var/run/reboot-required ]; then
     echo "reboot required"
+  else
+    OUTPUT=`needrestart 2>&1 | grep "outdated processes"`
+    if [ "$OUTPUT" != "" ]; then
+      echo "reboot required"
+    fi
   fi
 fi
 
 if [ "dnf" == "$PACKAGE_MANAGER" ]; then
-  OUTPUT=`needs-restarting -r | grep "Reboot should not be necessary."`
+  OUTPUT=`needs-restarting -r 2>&1 | grep "Reboot should not be necessary."`
   if [ "$OUTPUT" != "Reboot should not be necessary." ]; then
     echo "reboot required"
   fi
