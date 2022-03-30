@@ -20,9 +20,14 @@ if [ "apt" == "$PACKAGE_MANAGER" ]; then
   if [ -f /var/run/reboot-required ]; then
     echo "reboot required"
   else
-    OUTPUT=`needrestart 2>&1 | grep "outdated processes"`
+    OUTPUT=`needrestart -b 2>&1 | grep "NEEDRESTART-SVC"`
     if [ "$OUTPUT" != "" ]; then
       echo "reboot required"
+    else
+      OUTPUT=`needrestart -b 2>&1 | grep "NEEDRESTART-KSTA"`
+      if [ "$OUTPUT" != "NEEDRESTART-KSTA: 1" ]; then
+        echo "reboot required"
+      fi
     fi
   fi
 fi

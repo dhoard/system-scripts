@@ -20,15 +20,20 @@ if [ "apt" == "$PACKAGE_MANAGER" ]; then
   if [ -f /var/run/reboot-required ]; then
     reboot
   else
-    OUTPUT=`needrestart 2>&1 | grep "outdated processes"`
+    OUTPUT=`needrestart -b 2>&1 | grep "NEEDRESTART-SVC"`
     if [ "$OUTPUT" != "" ]; then
       reboot
+    else
+      OUTPUT=`needrestart -b 2>&1 | grep "NEEDRESTART-KSTA"`
+      if [ "$OUTPUT" != "NEEDRESTART-KSTA: 1" ]; then
+        reboot
+      fi
     fi
   fi
 fi
 
 if [ "dnf" == "$PACKAGE_MANAGER" ]; then
-  OUTPUT=`needs-restarting -r 2>& 1 | grep "Reboot should not be necessary."`
+  OUTPUT=`needs-restarting -r 2>&1 | grep "Reboot should not be necessary."`
   if [ "$OUTPUT" != "Reboot should not be necessary." ]; then
     reboot
   fi
