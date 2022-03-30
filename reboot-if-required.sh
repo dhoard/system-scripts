@@ -28,7 +28,7 @@ if [ "apt" == "$PACKAGE_MANAGER" ]; then
 fi
 
 if [ "dnf" == "$PACKAGE_MANAGER" ]; then
-  OUTPUT=`needs-restarting -r | grep "Reboot should not be necessary."`
+  OUTPUT=`needs-restarting -r 2>& 1 | grep "Reboot should not be necessary."`
   if [ "$OUTPUT" != "Reboot should not be necessary." ]; then
     reboot
   fi
