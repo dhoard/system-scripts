@@ -15,10 +15,10 @@ do
   ping -c 1 ${SERVERNAME} > /dev/null 2>&1
   if [ "$?" == "0" ]
   then
-    echo "> ${SERVERNAME}" | tee -a run-on-hosts.log 2>&1
+    echo "[${SERVERNAME}]" | tee -a run-on-hosts.log 2>&1
     ssh administrator@${SERVERNAME} 'bash -s' < "${FILE}" | tee -a run-on-hosts.log 2>&1
   else
-    echo "! ${SERVERNAME}" | tee -a run-on-hosts.log 2>&1
+    echo "[!${SERVERNAME}]" | tee -a run-on-hosts.log 2>&1
   fi
 
 done < "${1}"
