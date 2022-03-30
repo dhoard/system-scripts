@@ -23,6 +23,11 @@ fi
 if [ "apt" == "$PACKAGE_MANAGER" ]; then
   if [ -f /var/run/reboot-required ]; then
     reboot
+  else
+    OUTPUT=`needrestart 2>&1 | grep "outdated processes"`
+    if [ "$OUTPUT" != "" ]; then
+      reboot
+    fi
   fi
 fi
 
