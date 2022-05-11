@@ -23,7 +23,7 @@ if [ "apt" == "$PACKAGE_MANAGER" ]; then
     apt-get -y update -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold'
   fi
 
-  apt-get -y upgrade
+  apt-get -y dist-upgrade
   apt-get -y autoremove
 fi
 
