@@ -11,6 +11,8 @@ elif [ "Raspbian GNU/Linux" == "$NAME" ]; then
   PACKAGE_MANAGER=apt
 elif [ "AlmaLinux" = "$NAME" ]; then
   PACKAGE_MANAGER=dnf
+elif [ "CentOS Stream" = "$NAME" ]; then
+  PACKAGE_MANAGER=dnf
 else
   echo "Unsupported OS = $NAME"
   exit 1

@@ -11,6 +11,8 @@ elif [ "Raspbian GNU/Linux" == "$NAME" ]; then
   TYPE=apt
 elif [ "AlmaLinux" = "$NAME" ]; then
   TYPE=dnf
+elif [ "CentOS Stream" = "$NAME" ]; then
+  TYPE=dnf
 else
   echo "Unsupported OS = $NAME"
   exit 1
