@@ -9,6 +9,8 @@ elif [ "Linux Mint" == "$NAME" ]; then
   PACKAGE_MANAGER=apt
 elif [ "Raspbian GNU/Linux" == "$NAME" ]; then
   PACKAGE_MANAGER=apt
+elif  [ "Debian GNU/Linux" == "$NAME" ]; then
+  PACKAGE_MANAGER=apt  
 elif [ "AlmaLinux" = "$NAME" ]; then
   PACKAGE_MANAGER=dnf
 elif [ "CentOS Stream" = "$NAME" ]; then
